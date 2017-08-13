@@ -166,4 +166,36 @@ public class TestFileInputOutputStream {
             }
         }
     }
+
+    //实现文件复制的方法
+    public static void copyFile(String src, String dest) throws IOException {
+        //1.提供读入和写出的文件
+        File file1 = new File(src);
+        File file2 = new File(dest);
+
+        //2.提供相应的流
+        FileInputStream fis1 = null;
+        FileOutputStream fos1 = null;
+
+        try {
+            fis1 = new FileInputStream(file1);
+            fos1 = new FileOutputStream(file2);
+
+            //3.文件的复制
+            byte[] b = new byte[20];
+            int len;
+            while ((len = fis1.read()) != -1) {
+                fos1.write(b, 0, len);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (null != fos1) {
+                fos1.close();
+            }
+            if (null != fis1) {
+                fis1.close();
+            }
+        }
+    }
 }
