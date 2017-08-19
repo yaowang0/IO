@@ -15,3 +15,10 @@ ObjectInputStream/ObjectOutputStream
 
 随机存取文件流
 RandomAccessFile
+
+
+java.net
+IP address：InetAddress
+port：标识正在计算机上运行的进程。
+IP address + port = socket
+

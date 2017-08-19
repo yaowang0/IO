@@ -1,4 +1,4 @@
-package com.expgiga.java;
+package com.expgiga.io;
 
 import java.io.File;
 import java.io.IOException;
