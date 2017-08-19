@@ -1,6 +1,6 @@
 package com.expgiga.net;
 
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;

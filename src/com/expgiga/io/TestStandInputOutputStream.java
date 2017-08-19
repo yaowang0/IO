@@ -1,6 +1,6 @@
 package com.expgiga.io;
 
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 import java.io.BufferedReader;
 import java.io.IOException;
