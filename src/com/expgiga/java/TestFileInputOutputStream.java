@@ -11,11 +11,11 @@ import java.io.*;
  * 按照角色的不同：节点流(直接作用在文件上的)和处理流
  *
  * 2.IO流的体系：
- * 抽象基类         节点流(文件流)
- * InputStream     FileInputStream
- * OutputStream    FileOutputStream
- * Reader          FileReader
- * Writer          FileWriter
+ * 抽象基类         节点流(文件流)         缓冲流(处理流的一种，用来加速节点流处理速度)
+ * InputStream     FileInputStream       BufferedInputStream
+ * OutputStream    FileOutputStream      BufferedOutputStream
+ * Reader          FileReader            BufferedReader
+ * Writer          FileWriter            BufferedWriter
  *
  * 流的分类：
  * 按操作数据单位的不同分为：字节流(8 bit)，字符流(16 bit)
