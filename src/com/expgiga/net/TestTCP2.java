@@ -25,6 +25,9 @@ public class TestTCP2 {
             os = socket.getOutputStream();
             os.write("I ma client!".getBytes());
 
+            //shutdownOutput():执行此方法，显示的告诉服务端发送完毕，服务端的read是阻塞式的
+            socket.shutdownOutput();
+
             is = socket.getInputStream();
             byte[] b= new byte[20];
             int len;
