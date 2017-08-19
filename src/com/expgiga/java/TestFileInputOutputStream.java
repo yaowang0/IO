@@ -142,6 +142,43 @@ public class TestFileInputOutputStream {
         }
     }
 
-    //
+    //FileInputStream->FileOutputStream从硬盘读取文件复制
+    @Test
+    public void testFileInputStreamOutputStream() {
+        //2.相应的流
+        FileInputStream fis = null;
+        FileOutputStream fos = null;
+        try {
+            //1.读入和写出的文件
+            File file1 = new File("hello.txt");
+            File file2 = new File("hello3.txt");
 
+            fis = new FileInputStream(file1);
+            fos = new FileOutputStream(file2);
+
+            //3.实现文件的复制
+            byte[] b = new byte[10];
+            int len;
+            while ((len = fis.read(b)) != -1) {
+                fos.write(b, 0, len);//注意不是：fos.write(b),fos.write(b. 0, b.length)
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (null != fis) {
+                try {
+                    fis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (null != fos) {
+                try {
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }
