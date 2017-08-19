@@ -22,6 +22,13 @@ import java.io.*;
  * 序列化是RMI（Remote Method Invoke）过程的参数和返回值都必须实现的机制。而RMI是JavaEE的基础。因此序列化机制是JavaEE平台的基础。
  *
  * 如果需要让某个对象支持序列化机制，则必须让其类的可序列化的，为了让某个类是可序列化的，该类必须实现以下两个接口之一：Serializable, Externalizable
+ *
+ * 凡是实现Serializable接口的类都有一个表示序列化版本标识符的静态变量。
+ * private static final long serialVersionUID
+ *
+ * 显式的定义serialVersionUID的用途：
+ * 1.希望类的不同版本对序列化兼容，因此需确保类的不同版本具有相同的serialVersionUID
+ * 2.不希望类的不同版本对序列化兼容，因此需确保类的不同版本具有不同的serialVersionUID
  */
 public class TestObjectInputOutputStream {
     //将内部中的序列化过程：将内部中的对象通过objectOutputStream转换成为二进制流，存储在硬盘文件中
@@ -79,9 +86,12 @@ public class TestObjectInputOutputStream {
  * Person要实现序列化，要求：
  * 1.类要是可序列化的：实现接口Serialized/Externalizable
  * 2.类的属性也要求是实现了Serialized接口
+ * 3.提供一个版本号：private static final long serialVersionUID
+ * 4.不能序列化static和transient修饰的成员变量
  */
 
 class Person implements Serializable {
+    private static final long serialVersionUID = -9008441467926226186L;
     String name;
     int age;
 
