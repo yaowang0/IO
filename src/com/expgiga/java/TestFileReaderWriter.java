@@ -4,9 +4,6 @@ import org.testng.annotations.Test;
 
 import java.io.*;
 
-/**
- * Created by YaoWang on 2017/8/19.
- */
 /*
  * 使用FileReader FileWriter实现文本文件的复制！
  * 对于非文本文件(视频文件、音频文件、图片)只能够使用字节流！

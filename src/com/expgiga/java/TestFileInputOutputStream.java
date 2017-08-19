@@ -88,6 +88,7 @@ public class TestFileInputOutputStream {
         }
     }
 
+    //使用byte[]
     @Test
     public void testFileInputStream3() {
         FileInputStream fis = null;
@@ -97,9 +98,11 @@ public class TestFileInputOutputStream {
             byte[] b = new byte[20]; //要读取到的数据写入数组
             int len; //每次读入到byte中的字节的长度
             while ((len = fis.read(b)) != -1) {
-                for (int i = 0; i < len; i++) {
-                    System.out.print((char) b[i]);
-                }
+//                for (int i = 0; i < len; i++) { //注意，此处不是b.length！
+//                    System.out.print((char) b[i]);
+//                }
+                String str = new String(b, 0, len);//注意，此处不是b.length！
+                System.out.print(str);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -113,4 +116,32 @@ public class TestFileInputOutputStream {
             }
         }
     }
+
+    //FileOutputStream
+    @Test
+    public void testFileOutputStream() {
+        FileOutputStream fos = null;
+        try {
+            //1.创建一个File对象，表明要写入的文件位置
+            File file = new File("Hello2.txt");
+            //2.创建一个FileOutputStream的对象，将file的对象作为参数传递给FileOutputStream的构造函器中
+            fos = new FileOutputStream(file);
+            //3.写入操作
+            fos.write("Hello World!".getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (null != fos) {
+                try {
+                    //4.关闭输出流
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    //
+
 }
