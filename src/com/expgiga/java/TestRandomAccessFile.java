@@ -61,13 +61,69 @@ public class TestRandomAccessFile {
         }
     }
 
+    //这个实现的覆盖的效果
     @Test
     public void test2() {
         RandomAccessFile raf = null;
         try {
-            raf = new RandomAccessFile(new File("randomAccessFile1.txt"), "r");
+            raf = new RandomAccessFile(new File("randomAccessFile1.txt"), "rw");
             raf.seek(3);
             raf.write("xy".getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (null != raf) {
+                try {
+                    raf.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    //实现插入的效果，在第3个字符后面插入xy，此时的文件初始只有一行
+    @Test
+    public void test3() {
+        RandomAccessFile raf = null;
+        try {
+            raf = new RandomAccessFile(new File("randomAccessFile1.txt"), "rw");
+            raf.seek(3);
+            String str = raf.readLine();
+//            long l = raf.getFilePointer();
+//            System.out.println(l);
+            raf.seek(3);
+            raf.write("xy".getBytes());
+            raf.write(str.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (null != raf) {
+                try {
+                    raf.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    //实现插入的效果，在第3个字符后面插入xy，此时的文件初始有多行
+    @Test
+    public void test4() {
+        RandomAccessFile raf = null;
+        try {
+            raf = new RandomAccessFile(new File("randomAccessFile1.txt"), "rw");
+            raf.seek(3);
+            byte[] b = new byte[10];
+            int len;
+            StringBuffer sb = new StringBuffer();
+            while (-1 != (len = raf.read(b))) {
+                sb.append(new String(b, 0, len));
+            }
+            raf.seek(3);
+            raf.write("xy".getBytes());
+            raf.write(sb.toString().getBytes());
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
