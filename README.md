@@ -22,4 +22,16 @@
 
 IP address + port = socket
 
-TCP/UDP协议
+##
+Java NIO(NEW IO Non Blocking IO)以更加高效的方式进行文件的读写。
+- Buffer和Channel
+- FileChannel
+- Selector
+- SocketChannel、ServerSocketChannel、DatagramChannel
+- pipe
+
+IO | NIO|
+----|----|
+面向流(Stream Oriented) |面向缓冲区(Buffer Oriented) |
+阻塞IO(Blocking IO) | 非阻塞IO(Non Blocking IO) |
+无  |  选择器(Selectors)
