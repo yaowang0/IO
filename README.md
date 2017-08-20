@@ -24,6 +24,7 @@ IP address + port = socket
 
 ## 
 Java NIO(NEW IO Non Blocking IO)以更加高效的方式进行文件的读写。
+NIO系统的核心在于：通道(Channel)负责传输和缓冲区(Buffer)负责存储。
 - Buffer和Channel
 - FileChannel
 - Selector
