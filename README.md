@@ -1,4 +1,4 @@
-##java.io.File
+## java.io.File
 **文件流：**
 - FileInputStream/FileOutputStream/FileReader/FileWriter
 
@@ -16,13 +16,13 @@
 - RandomAccessFile
 
 
-##java.net
+## java.net
 > IP Address：InetAddress
 > port：标识正在计算机上运行的进程。
 
 IP address + port = socket
 
-##
+## 
 Java NIO(NEW IO Non Blocking IO)以更加高效的方式进行文件的读写。
 - Buffer和Channel
 - FileChannel
