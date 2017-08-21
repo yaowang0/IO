@@ -116,7 +116,7 @@ public class TestNonBlockingNIO {
                         //14.读取数据
                         ByteBuffer buf = ByteBuffer.allocate(1024);
                         int len;
-                        while ((len = sChannel.read(buf)) > 0) {
+                        while ((len = sChannel1.read(buf)) > 0) {
                             buf.flip();
                             System.out.println(new String(buf.array(), 0, len));
                             buf.clear();
@@ -132,6 +132,20 @@ public class TestNonBlockingNIO {
             e.printStackTrace();
         } finally {
             //关闭相关的通道等
+            if (null != sChannel1) {
+                try {
+                    sChannel1.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (null != sChannel) {
+                try {
+                    sChannel.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
             if (null != selector) {
                 try {
                     selector.close();
