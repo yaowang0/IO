@@ -9,6 +9,11 @@ package com.expgiga.juc;
  * 当多个线程操作共享数据时，彼此是不可见的。
  * volatile关键字：当多个线程操作共享数据时，可以保证内存中的数据可见。
  *
+ * 相较于synchronized是一种较为轻量级的同步策略。
+ * 注意：
+ * 1.volatile不具备"互斥性"
+ * 2.volatile不能保证变量的"原子性"
+ *
  */
 public class TestVolatile {
     public static void main(String[] args) {
