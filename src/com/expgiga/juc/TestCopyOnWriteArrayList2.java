@@ -8,7 +8,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * TestCopyOnWriteArrayList/CopyOnWriteArraySet:"写入并复制"
- *
+ * 注意：添加操作多时，效率低，因为每次添加时都会进行复制，开销非常的大。并发迭代多时，可以选择，提高效率。
  */
 public class TestCopyOnWriteArrayList2 {
     public static void main(String[] args) {
