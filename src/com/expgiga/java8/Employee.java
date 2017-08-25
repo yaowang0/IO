@@ -9,7 +9,18 @@ public class Employee {
     private int age;
     private double salary;
 
+    private int id;
+
     public Employee() {
+    }
+
+    public Employee(int id) {
+        this.id = id;
+    }
+
+    public Employee(int age, int id) {
+        this.age = age;
+        this.id = id;
     }
 
     public Employee(String name, int age, double salary) {
